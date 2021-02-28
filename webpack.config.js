@@ -1,7 +1,26 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 
-module.exports = {
+module.exports = [{
+  mode: 'development',
+  entry: {
+    client: './js/client.ts',
+  },
+  output: {
+    filename: '[name].js',
+    path: `${__dirname}/public/js`
+  },
+  module: {
+    rules: [{
+      test: /\.ts$/,
+      use: 'ts-loader',
+      exclude: /node_modules/,
+    }]
+  },
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
+},{
   mode: 'development',
   entry: './js/server.ts',
   target: 'node',
@@ -28,4 +47,4 @@ module.exports = {
     filename: 'server.js',
     path: path.join(__dirname, 'dist')
   }
-};
+}];
