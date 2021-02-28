@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "webpack",
-    "watch": "webpack -w"
+    "watch": "webpack -w",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
