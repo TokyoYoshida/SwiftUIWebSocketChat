@@ -13,5 +13,8 @@ form?.addEventListener('submit', (e: Event) => {
 })
 
 socket.on('message', (msg: string) => {
-  ul!.insertAdjacentElement('beforebegin', document.createElement(`<li>${msg}</li>`))
+  const textNode = document.createTextNode(msg)
+  const liElement = document.createElement(`li`)
+  liElement.appendChild(textNode)
+  ul!.insertAdjacentElement('beforebegin', liElement)
 })
